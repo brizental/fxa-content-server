@@ -10,6 +10,7 @@ const AuthErrors = require('lib/auth-errors');
 const BaseView = require('../base');
 const Cocktail = require('cocktail');
 const FormView = require('../form');
+const LastCheckedTimeMixin = require('../mixins/last-checked-time-mixin');
 const SettingsPanelMixin = require('../mixins/settings-panel-mixin');
 const UpgradeSessionMixin = require('../mixins/upgrade-session-mixin');
 const Template = require('templates/settings/two_step_authentication.mustache');
@@ -114,6 +115,7 @@ const View = FormView.extend({
       escapedTotpSupportAttributes: _.escape('class=totp-support-link target=_blank href=' + TOTP_SUPPORT_URL),
       hasToken: this._hasToken,
       isPanelOpen: this.isPanelOpen(),
+      lastCheckedTime: this._getLastCheckedTimeString(),
       statusVisible: this._statusVisible,
     });
   },
@@ -170,6 +172,7 @@ const View = FormView.extend({
   },
 
   refresh: showProgressIndicator(function () {
+    this._setLastCheckedTime();
     return this.render();
   }, CODE_REFRESH_SELECTOR, CODE_REFRESH_DELAY_MS),
 
@@ -182,6 +185,7 @@ Cocktail.mixin(
     title: t('Two-step Authentication')
   }),
   AvatarMixin,
+  LastCheckedTimeMixin,
   SettingsPanelMixin,
   TotpExperimentMixin
 );
