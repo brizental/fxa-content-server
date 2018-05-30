@@ -12,9 +12,7 @@
 const Mixin = {
 
   _setLastCheckedTime(date) {
-    if (date) {
-      date = new Date(date);
-    } else {
+    if (! date) {
       date = new Date();
     }
     this.lastCheckedTime = date.toLocaleTimeString([], {

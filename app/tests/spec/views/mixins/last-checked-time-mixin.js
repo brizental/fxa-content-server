@@ -8,6 +8,7 @@ const {assert} = require('chai');
 const BaseView = require('views/base');
 const Cocktail = require('cocktail');
 const LastCheckedTimeMixin = require('views/mixins/last-checked-time-mixin');
+const sinon = require('sinon');
 
 const View = BaseView.extend({});
 
@@ -36,8 +37,10 @@ describe('views/mixins/last-checked-time-mixin', () => {
   });
 
   it('should return formatted time', () => {
-    view._setLastCheckedTime('2018-05-30T16:58:06.343Z');
+    const date = new Date();
+    sinon.stub(date, 'toLocaleTimeString').callsFake(() => '4:58 PM');
+    view._setLastCheckedTime(date);
     const lastCheckString = view._getLastCheckedTimeString();
-    assert.equal(lastCheckString, 'Last checked: 12:58 PM', 'formatted time is set');
+    assert.equal(lastCheckString, 'Last checked: 4:58 PM', 'formatted time is set');
   });
 });
