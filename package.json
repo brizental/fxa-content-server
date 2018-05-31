@@ -112,7 +112,8 @@
     "underscore": "1.8.3",
     "universal-analytics": "0.4.15",
     "webpack": "3.10.0",
-    "webrtc-adapter-test": "0.2.5"
+    "webrtc-adapter-test": "0.2.5",
+    "zxcvbn": "4.4.2"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",

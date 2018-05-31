@@ -1,6 +1,6 @@
 {
   "name": "fxa-content-server",
-  "version": "1.112.1",
+  "version": "1.113.0",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -15061,6 +15061,11 @@
           "dev": true
         }
       }
+    },
+    "zxcvbn": {
+      "version": "4.4.2",
+      "resolved": "https://registry.npmjs.org/zxcvbn/-/zxcvbn-4.4.2.tgz",
+      "integrity": "sha1-KOwXzwl0PtyrBW3dixsGJizHPDA="
     }
   }
 }
