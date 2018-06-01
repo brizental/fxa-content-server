@@ -88,7 +88,10 @@ Cocktail.mixin(
   FlowEventsMixin,
   FormPrefillMixin,
   PasswordMixin,
-  PasswordStrengthExperimentMixin(),
+  PasswordStrengthExperimentMixin({
+    el: '.helper-balloon',
+    passwordEl: '#password'
+  }),
   ServiceMixin,
   SignUpMixin
 );

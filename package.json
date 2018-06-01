@@ -119,6 +119,8 @@
     "babel-cli": "6.26.0",
     "babel-eslint": "8.2.1",
     "babel-plugin-dynamic-import-webpack": "1.0.2",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
     "chai": "1.8.1",
     "coveralls": "2.11.9",
     "css": "2.2.1",
