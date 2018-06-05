@@ -62,7 +62,7 @@ define(function (require, exports, module) {
         hasSecondaryEmail: this._hasSecondaryEmail(),
         hasSecondaryVerifiedEmail: this._hasSecondaryVerifiedEmail(),
         isPanelOpen: this.isPanelOpen(),
-        lastCheckedTime: this._getLastCheckedTimeString(),
+        lastCheckedTime: this.getLastCheckedTimeString(),
         newEmail: this.newEmail,
       });
     },
@@ -108,7 +108,7 @@ define(function (require, exports, module) {
     },
 
     refresh: showProgressIndicator(function() {
-      this._setLastCheckedTime();
+      this.setLastCheckedTime();
       return this.render();
     }, EMAIL_REFRESH_SELECTOR, EMAIL_REFRESH_DELAYMS),
 

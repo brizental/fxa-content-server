@@ -59,7 +59,7 @@ define(function (require, exports, module) {
       _clickRefreshVerificationState: showProgressIndicator(function() {
         return this.setupSessionGateIfRequired()
           .then((verified) => {
-            this._setLastCheckedTime();
+            this.setLastCheckedTime();
             if (verified) {
               this.displaySuccess(t('Primary email verified successfully'), {
                 closePanel: false
@@ -78,7 +78,7 @@ define(function (require, exports, module) {
           redirectTo: this.window.location.href
         })
           .then(() => {
-            this._setLastCheckedTime();
+            this.setLastCheckedTime();
             this.displaySuccess(t('Verification email sent'), {
               closePanel: false
             });
@@ -100,7 +100,6 @@ define(function (require, exports, module) {
           emailSent: this.model.get('emailSent'),
           gatedHref: options.gatedHref,
           isPanelOpen: this.isPanelOpen(),
-          lastCheckedTime: this._getLastCheckedTimeString(),
           title: this.translate(options.title)
         });
       },

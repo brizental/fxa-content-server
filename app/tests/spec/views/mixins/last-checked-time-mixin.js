@@ -26,21 +26,21 @@ describe('views/mixins/last-checked-time-mixin', () => {
 
   it('should set last checked time', () => {
     assert.equal(view.lastCheckedTime, undefined, 'no time set');
-    view._setLastCheckedTime();
+    view.setLastCheckedTime();
     assert.equal(typeof view.lastCheckedTime, 'string', 'time is set');
   });
 
   it('should return `none` if lastCheckTime is not set', () => {
     assert.equal(view.lastCheckedTime, undefined, 'no time set');
-    const lastCheckString = view._getLastCheckedTimeString();
+    const lastCheckString = view.getLastCheckedTimeString();
     assert.equal(lastCheckString, 'Last checked: none', 'time is set to `none`');
   });
 
   it('should return formatted time', () => {
     const date = new Date();
     sinon.stub(date, 'toLocaleTimeString').callsFake(() => '4:58 PM');
-    view._setLastCheckedTime(date);
-    const lastCheckString = view._getLastCheckedTimeString();
+    view.setLastCheckedTime(date);
+    const lastCheckString = view.getLastCheckedTimeString();
     assert.equal(lastCheckString, 'Last checked: 4:58 PM', 'formatted time is set');
   });
 });

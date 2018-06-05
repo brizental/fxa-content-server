@@ -9,9 +9,17 @@
  */
 'use strict';
 
+const {t} = require('../base');
+
 const Mixin = {
 
-  _setLastCheckedTime(date) {
+  setInitialContext(context) {
+    context.set({
+      lastCheckedTime: this.getLastCheckedTimeString()
+    });
+  },
+
+  setLastCheckedTime(date) {
     if (! date) {
       date = new Date();
     }
@@ -21,12 +29,12 @@ const Mixin = {
     });
   },
 
-  _getLastCheckedTimeString() {
-    let time = 'none';
+  getLastCheckedTimeString() {
+    let time = t('none');
     if (this.lastCheckedTime) {
       time = this.lastCheckedTime;
     }
-    return `Last checked: ${time}`;
+    return t('Last checked') + `: ${time}`;
   }
 };
 

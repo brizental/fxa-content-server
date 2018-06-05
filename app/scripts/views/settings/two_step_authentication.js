@@ -115,7 +115,6 @@ const View = FormView.extend({
       escapedTotpSupportAttributes: _.escape('class=totp-support-link target=_blank href=' + TOTP_SUPPORT_URL),
       hasToken: this._hasToken,
       isPanelOpen: this.isPanelOpen(),
-      lastCheckedTime: this._getLastCheckedTimeString(),
       statusVisible: this._statusVisible,
     });
   },
@@ -172,7 +171,7 @@ const View = FormView.extend({
   },
 
   refresh: showProgressIndicator(function () {
-    this._setLastCheckedTime();
+    this.setLastCheckedTime();
     return this.render();
   }, CODE_REFRESH_SELECTOR, CODE_REFRESH_DELAY_MS),
 
